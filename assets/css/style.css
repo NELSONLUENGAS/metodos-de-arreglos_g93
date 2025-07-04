@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--hotel-primary: #1a365d;
+	--hotel-secondary: #2c5282;
+	--hotel-accent: #e53e3e;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+	min-height: 100vh;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hotel-header {
+	background: linear-gradient(
+		90deg,
+		var(--hotel-primary),
+		var(--hotel-secondary)
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.service-card {
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	border-radius: 12px;
+	overflow: hidden;
+	background: white;
+	border: 1px solid #e2e8f0;
+}
+
+.service-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+	transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+	background-color: #c53030;
+}
+
+.add-btn {
+	transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+	background-color: #2b6cb0;
+}
+
+.service-icon {
+	font-size: 1.8rem;
+	margin-bottom: 15px;
+	color: var(--hotel-secondary);
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ebf8ff;
+	border-radius: 50%;
+}
+
+.empty-state {
+	opacity: 0.7;
+}
+
+.pulse {
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.02);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.notification {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 15px 25px;
+	border-radius: 8px;
+	color: white;
+	font-weight: 500;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	transform: translateX(150%);
+	transition: transform 0.4s ease;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+}
+
+.notification.show {
+	transform: translateX(0);
+}
+
+.form-container {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease;
+}
+
+.form-container.open {
+	max-height: 800px;
+}
+
+.toggle-form-btn i {
+	transition: transform 0.3s ease;
+}
+
+.toggle-form-btn.open i {
+	transform: rotate(180deg);
+}
+
+.icon-option {
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 8px;
+	text-align: center;
+	border: 2px solid #e2e8f0;
+	transition: all 0.2s ease;
+}
+
+.icon-option:hover {
+	background-color: #ebf8ff;
+	border-color: var(--hotel-secondary);
+}
+
+.icon-option.selected {
+	background-color: #bee3f8;
+	border-color: var(--hotel-secondary);
+}
+
+.icon-option i {
+	font-size: 1.5rem;
+	color: var(--hotel-secondary);
+}

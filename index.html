@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios Hotel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <!-- Encabezado -->
+        <header class="bg-[#1a365d] text-white p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold"><i class="fas fa-hotel mr-3"></i>Gestión de Servicios
+                    </h1>
+                    <p class="text-blue-200 mt-2">Administre los servicios adicionales para los huéspedes</p>
+                </div>
+                <div class="bg-white/10 p-3 rounded-full">
+                    <i class="fas fa-concierge-bell text-2xl"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="p-6">
+            <!-- Sección para agregar servicios -->
+            <div class="mb-8">
+                <button id="toggle-form-btn"
+                    class="toggle-form-btn w-full flex items-center justify-between bg-[#2c5282] text-white p-4 rounded-lg">
+                    <span class="font-medium text-lg"><i class="fas fa-plus-circle mr-2"></i>Agregar Nuevo
+                        Servicio</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div id="form-container" class="form-container bg-blue-50 rounded-lg mt-2">
+                    <form id="add-service-form" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Nombre del Servicio</label>
+                            <input type="text" id="service-name"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Ej: Servicio a la habitación" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Icono</label>
+                            <div class="grid grid-cols-5 gap-3" id="icon-selector">
+                                <!-- Iconos se generarán con JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2 font-medium">Descripción</label>
+                            <textarea id="service-description"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                rows="3" placeholder="Descripción del servicio..." required></textarea>
+                        </div>
+
+                        <div class="md:col-span-2 flex justify-end">
+                            <button type="submit"
+                                class="add-btn bg-[#1a365d] hover:bg-[#2c5282] text-white font-medium py-3 px-8 rounded-lg flex items-center">
+                                <i class="fas fa-save mr-2"></i> Guardar Servicio
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contador de servicios -->
+            <div
+                class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <div class="mb-3 sm:mb-0">
+                    <h3 class="font-semibold text-lg text-[#1a365d]">Servicios Disponibles</h3>
+                    <p id="service-counter" class="text-[#2c5282]">Cargando servicios...</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button id="reset-btn"
+                        class="bg-[#2c5282] hover:bg-[#1a365d] text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <i class="fas fa-redo mr-2"></i> Restaurar
+                    </button>
+                    <button id="clear-btn"
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <i class="fas fa-trash mr-2"></i> Limpiar Todo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de servicios -->
+            <div id="services-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Servicios se cargarán aquí dinámicamente -->
+            </div>
+
+            <!-- Estado vacío -->
+            <div id="empty-state" class="empty-state text-center py-16 hidden">
+                <i class="fas fa-concierge-bell text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-2xl font-semibold text-gray-500 mb-2">No hay servicios disponibles</h3>
+                <p class="text-gray-500">Agregue nuevos servicios usando el formulario superior</p>
+            </div>
+        </main>
+
+        <!-- Notificación -->
+        <div id="notification" class="notification bg-green-600">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span>Servicio eliminado correctamente</span>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
